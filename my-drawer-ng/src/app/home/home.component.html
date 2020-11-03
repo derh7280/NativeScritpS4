@@ -12,10 +12,19 @@
     <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
         ios.position="left">
     </ActionItem>
-    <Label text="Home"></Label>
+    <Label text="Inicio"></Label>
 </ActionBar>
+ 
 
-<GridLayout class="page__content">
-    <Label class="page__content-icon fas" text="&#xf015;"></Label>
-    <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+    <GridLayout class="page__content">
+       <!-- <Label class="page__content-icon fas" text="&#xf015;"></Label> 
+            <Label class="page__content-placeholder" text="Bienvenido"></Label> -->  
+        <ScrollView>  
+            <StackLayout>
+                <Label class="page__content-icon fas" text="&#xf015;"></Label> 
+                <label textWrap="true" class="h1 description-label bg-primary text-center" text="¡Importante!"></label>
+                <label textWrap="true" class="h2 description-label" text="Estimado usuario te informamos que debido al alto volumen de envíos generados y a los protocolos de prevención del COVID-19, presentamos algunas novedades de operación."></label>
+                <Label textWrap="true" class="h2 description-label" text="Estamos haciendo todo lo posible para superar rápidamente estas novedades." ></Label>
+            </StackLayout> 
+        </ScrollView>
+    </GridLayout>

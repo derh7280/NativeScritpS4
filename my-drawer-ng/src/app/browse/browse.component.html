@@ -10,12 +10,63 @@
     because its function is to always navigate back in the application.
     -->
     <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
-        ios.position="left">
+        ios.position="left"> 
     </ActionItem>
-    <Label text="Browse"></Label>
+    <Label text="Historial"></Label>
 </ActionBar>
+<!-- <StackLayout class="page__content">
+            <Label class="page__content-icon far" text="&#xf1ea;"></Label> 
+            <RadDataForm [source]="person"></RadDataForm> 
+            <button text="Ir a eventos" (tap)="onNavItemTap('/events')"></button>
+            <android>
+               <Label class="color" text="Hola Mundo Android"></Label> 
+            </android> 
+            <ios>
+                <label class="color" text="Hola Mundo IOS"></label>
+            </ios>
+</StackLayout> --> 
+<GridLayout>
+    <ScrollView>
+        <StackLayout class="home-panel">
+            <StackLayout>
+                <Label class="page__content-icon far" text="&#xf1ea;"></Label>   
+            </StackLayout>
+            <PullToRefresh (refresh)="onPull($event)" indicatorFillColor="#fff000" indicatorColor="#3489db">
+            <!-- 
+                <ListView [items]="countries" (itemTap)="onItemTap($event)"
+                    style="height:1250px">
+                    <ng-template let-country="item">
+                        <FlexboxLayout flexDirection="row">
+                            <Image [src]="country.imageSrc" class="thumb img-circle" stretch="aspectFill"></Image>
+                            <Image src="res://logo" class="thumb img-circle" stretch="aspectFill"></Image>
+                            <Label [text]="country.name" class="t-12"
+                                verticalAlignment="center" style="width: 60%">
+                            </Label>
+                        </FlexboxLayout>
+                    </ng-template>
+                </ListView> 
+            -->
+                <ListView [items]="resultados" (itemTap)="onItemTap($event)"
+                    style="height:1250px">
+                    <ng-template let-x="item">
+                        <FlexboxLayout flexDirection="row">
+                            <Image src="res://logo" class="thumb img-circle" stretch="aspectFill"></Image>
+                            <Label [text]="x" class="t-12"
+                                verticalAlignment="center" style="width: 60%">
+                            </Label>
+                        </FlexboxLayout>
+                    </ng-template>
+                </ListView> 
+            </PullToRefresh>
+            <!-- <ios>
+                <label class="color" text="Linea Visible an IOS"></label>
+            </ios>
 
-<GridLayout class="page__content">
-    <Label class="page__content-icon far" text="&#xf1ea;"></Label>
-    <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
+            <android>
+                <Label class="color" text="{{lineav}}"></Label> 
+            </android>  -->
+            <button class="-primary" text="Ir a eventos" (tap)="onNavItemTap('/events')"></button>
+        </StackLayout>
+    </ScrollView>
 </GridLayout>
+ 

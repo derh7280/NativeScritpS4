@@ -12,10 +12,23 @@
     <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
         ios.position="left">
     </ActionItem>
-    <Label text="Settings"></Label>
+    <Label text="Configuraciónes"></Label>
 </ActionBar>
 
+<!-- 
 <GridLayout class="page__content">
     <Label class="page__content-icon fas" text="&#xf013;"></Label>
-    <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
+    <Label class="page__content-placeholder" text=" El contenido de la página va aquí "></Label>
 </GridLayout>
+ -->
+
+<ScrollView>  
+        <ListView [items]="OpcionesConfig">    
+            <ng-template let-x="item">
+                <FlexboxLayout flexDirection="column">
+                    <button class="nt-button -primary" [text]="x.name" (tap)="displayAlertDialog('Información','Click en el boton ' + x.name)"></button>
+                    <button class="nt-button -outline -rounded-lg" text="Seleccion" (tap)="displayCategoria('Categoria','Selecciona una opcion de la lista', ['Categoria 1', 'Categoria 2', 'Categoria 3', 'Categoria 4', 'Categoria 5'], true)" ></button>                   
+                </FlexboxLayout> 
+            </ng-template> 
+        </ListView>       
+</ScrollView>

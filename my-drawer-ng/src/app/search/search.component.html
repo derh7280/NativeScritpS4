@@ -12,10 +12,29 @@
     <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
         ios.position="left">
     </ActionItem>
-    <Label text="Search"></Label>
-</ActionBar>
+    <Label text="Consulta"></Label>
+</ActionBar> 
 
-<GridLayout class="page__content">
-    <Label class="page__content-icon fas" text="&#xf002;"></Label>
-    <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
+<GridLayout>
+    <ScrollView>
+        <!-- <StackLayout class="page__content"> -->
+        <StackLayout class="home-panel" #layout>    
+            <StackLayout>
+                <Label class="page__content-icon fas" text="&#xf002;"></Label>
+            </StackLayout>
+            <SearchForm (search)="buscarAhora($event)" [inicial]="'Hotel'" ></SearchForm>
+            <!-- <Label class="page__content-placeholder" *ngFor="let s of this.noticias.buscar()" [text]="s"></Label> -->
+            <ListView class="list-group" [items]="this.resultados" (itemTap)="onItemTap($event)"
+            style="height:1250px">
+                <ng-template let-x="item">
+                    <FlexboxLayout flexDirection="row">
+                        <Image src="res://icon" class="thumb img-circle" stretch="aspectFill"></Image>
+                        <Label [text]="x" class="list-group-item-heading"
+                            verticalAlignment="center" style="width: 60%">
+                        </Label>
+                    </FlexboxLayout>
+                </ng-template>
+            </ListView>
+        </StackLayout> 
+    </ScrollView>
 </GridLayout>

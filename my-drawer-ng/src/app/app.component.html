@@ -7,8 +7,8 @@ https://docs.nativescript.org/angular/ui/professional-ui-components/ng-SideDrawe
     <GridLayout tkDrawerContent rows="auto, *" class="nt-drawer__content">
         <StackLayout row="0" class="nt-drawer__header">
             <Image class="nt-drawer__header-image fas t-36" src="font://&#xf2bd;"></Image>
-            <Label class="nt-drawer__header-brand" text="User Name"></Label>
-            <Label class="nt-drawer__header-footnote" text="username@mail.com"></Label>
+            <Label class="nt-drawer__header-brand" text="Administrador"></Label>
+            <Label class="nt-drawer__header-footnote" text="derh7280@hotmail.com"></Label>
         </StackLayout>
     
         <ScrollView row="1" class="nt-drawer__body">
@@ -20,27 +20,50 @@ https://docs.nativescript.org/angular/ui/professional-ui-components/ng-SideDrawe
 
                 <GridLayout columns="auto, *" class="nt-drawer__list-item" [class.-selected]="isComponentSelected('/browse')" (tap)="onNavItemTap('/browse')">
                     <Label col="0" text="&#xf1ea;" class="nt-icon far"></Label>
-                    <Label col="1" text="Browse" class="p-r-10"></Label>
+                    <Label col="1" text="Historial" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *" class="nt-drawer__list-item" [class.-selected]="isComponentSelected('/listado')" (tap)="onNavItemTap('/listado')">
+                    <Label col="0" text="&#xf03a;" class="nt-icon fas"></Label>
+                    <Label col="1" text="Listado" class="p-r-10"></Label>
+                </GridLayout> 
+
+                <GridLayout columns="auto, *" class="nt-drawer__list-item" [class.-selected]="isComponentSelected('/events')" (tap)="onNavItemTap('/events')">
+                    <Label col="0" text="&#xf1ea;" class="nt-icon far"></Label>
+                    <Label col="1" text="Eventos" class="p-r-10"></Label>
                 </GridLayout>
 
                 <GridLayout columns="auto, *" class="nt-drawer__list-item" [class.-selected]="isComponentSelected('/search')" (tap)="onNavItemTap('/search')">
                     <Label col="0" text="&#xf002;" class="nt-icon fas"></Label>
-                    <Label col="1" text="Search" class="p-r-10"></Label>
+                    <Label col="1" text="Consultar" class="p-r-10"></Label>
                 </GridLayout>
 
                 <GridLayout columns="auto, *" class="nt-drawer__list-item" [class.-selected]="isComponentSelected('/featured')" (tap)="onNavItemTap('/featured')">
                     <Label col="0" text="&#xf005;" class="nt-icon fas"></Label>
-                    <Label col="1" text="Featured" class="p-r-10"></Label>
+                    <Label col="1" text="Destacados" class="p-r-10"></Label>
                 </GridLayout>
     
                 <StackLayout class="hr"></StackLayout>
 
                 <GridLayout columns="auto, *" class="nt-drawer__list-item" [class.-selected]="isComponentSelected('/settings')" (tap)="onNavItemTap('/settings')">
                     <Label col="0" text="&#xf013;" class="nt-icon fas"></Label>
-                    <Label col="1" text="Settings" class="p-r-10"></Label>
+                    <Label col="1" text="Configuración" class="p-r-10"></Label>
                 </GridLayout>
+
+                <StackLayout class="hr"></StackLayout>
+
+                <GridLayout columns="auto, *" class="nt-drawer__list-item" [class.-selected]="isComponentSelected('/support')" (tap)="onNavItemTap('/support')">
+                    <Label col="0" text="&#xf590;" class="nt-icon fas"></Label>
+                    <Label col="1" text="Soporte" class="p-r-10"></Label>
+                </GridLayout>
+ 
+                <StackLayout>
+                    <Image src="res://logo" stretch="none"></Image>
+                </StackLayout>
+
             </StackLayout>
-        </ScrollView>
+
+        </ScrollView> 
     </GridLayout>
 
     <page-router-outlet tkMainContent></page-router-outlet>

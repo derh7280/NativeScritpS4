@@ -1,0 +1,34 @@
+<ActionBar>
+    <!-- 
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- 
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left"> 
+    </ActionItem>
+    <Label text="Listado"></Label>
+    
+</ActionBar>
+
+<ScrollView>
+    <!-- <ListView [items]="productos" (itemTap)="onItemTap($event)"> -->
+    <ListView [items]="productos" (itemTap)="onItemTap($event)" (tap)="onNavItemTap('/vista')">    
+        <ng-template let-x="item">
+            <FlexboxLayout flexDirection="column" width="300" height="350">
+                <Image src="res://icon" class="thumb img-circle"></Image>
+                <Label [text]="x.name" class="t-12" verticalAlignment="center" style="width: 90%"></Label>
+                <VistaComponent [nombreProducto]="Duhan"></VistaComponent>
+            </FlexboxLayout>
+        </ng-template>
+    </ListView> 
+    <!-- <Button class="btn btn-primary" text="Item" [nsRouterLink]="['/vista']"></Button> -->
+    <!-- <StackLayout>  
+        <button class="nt-button" text="Ver detalles" (tap)="onNavItemTap('/vista')"></button>
+    </StackLayout> -->
+</ScrollView> 
