@@ -4,6 +4,8 @@ import { Application, Color, colorProperty, TextField, View } from "@nativescrip
 import { NoticiasService } from "../domain/noticias.service";
 import { ItemEventData } from "@nativescript/core/ui/list-view"
 import {AnimationCurve} from "@nativescript/core/ui/enums";
+import * as dialogs from "@nativescript/core/ui/dialogs"// tns-core-modules/ui/dialogs";
+import * as Toast from "nativescript-toasts";
 
 @Component({
     selector: "Search",
@@ -18,7 +20,7 @@ export class SearchComponent implements OnInit {
     @ViewChild("layout") layout: ElementRef;
     resultados: Array<string>;
     
-    constructor(public noticias: NoticiasService) {
+    constructor(private noticias: NoticiasService) {
         // Use the component constructor to inject providers.
 
     }
@@ -28,28 +30,7 @@ export class SearchComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.noticias.agregar("Hotel 1");
-        this.noticias.agregar("Hotel 2");
-        this.noticias.agregar("Hotel 3");
-        // view.animate({
-        //     translate: { x: 0, y: 100},
-        //     duration: 1000,
-        //     curve: AnimationCurve.easeIn
-        // });
-    }
-
-    buscarAhora(s: string){
-        this.resultados  = this.noticias.buscar().filter((x) => x.indexOf(s)>=0); 
-        const layout=<View>this.layout.nativeElement;
-        layout.animate({
-            backgroundColor: new Color("red"),
-            duration:300,
-            delay:150//espera de 150ms
-        }).then(() => layout.animate({
-            backgroundColor: new Color("white"),
-            duration:300,
-            delay:150
-        }));
+       
     }
 
     onDrawerButtonTap(): void {
@@ -57,5 +38,27 @@ export class SearchComponent implements OnInit {
         sideDrawer.showDrawer();
     }
 
+    buscarAhora(s: string){
+        console.dir("buscarAhora " + s);
+        this.noticias.buscar(s).then(( r: any) => {
+            console.log("Resultados buscarAhora: " + JSON.stringify(r));
+            this.resultados = r;
+            const layout=<View>this.layout.nativeElement;
+            layout.animate({
+                backgroundColor: new Color("red"),
+                duration:300,
+                delay:150//espera de 150ms
+            }).then(() => layout.animate({
+                backgroundColor: new Color("white"),
+                duration:300,
+                delay:150
+            }));
+        }, (e) => {
+            console.log("Error buscarAhora: " + e );
+            Toast.show({text:"Error en la busqueda", duration: Toast.DURATION.SHORT});
+        });
+    }
 }
+
+
  
