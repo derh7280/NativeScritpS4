@@ -7,7 +7,7 @@ import { Application } from "@nativescript/core";
     templateUrl: "./vista.component.html"
 })
 export class VistaComponent implements OnInit {
-    @Input() nombreProducto: string;
+    // @Input() nombreProducto: string;
     constructor() {
         //this.nombre = 'DesarrolloWeb.com';
         

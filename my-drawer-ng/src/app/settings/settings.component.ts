@@ -102,9 +102,9 @@ export class SettingsComponent implements OnInit {
         };
         
         dialogs.action(options).then((result) => {
-            console.log(result);
+            console.log("Se selecciono la opción: "+result);
             if(touchs===true){
-                const toastOptions: Toast.ToastOptions = { text: "Se selecciono la opción: " +result, duration: Toast.DURATION.SHORT}   
+                const toastOptions: Toast.ToastOptions = { text: "Se selecciono la opción: " + result, duration: Toast.DURATION.SHORT}   
                 this.doLater(()=> Toast.show(toastOptions)); 
             } 
         });

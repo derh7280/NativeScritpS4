@@ -31,22 +31,30 @@
             <StackLayout>
                 <Label class="page__content-icon far" text="&#xf1ea;"></Label>   
             </StackLayout>
+            <ListView [items]="countries" style="height:1050px">
+                <ng-template let-country="item"> 
+                    <FlexboxLayout flexDirection="row">
+                        <Image [src]="country.imageSrc" class="thumb img-circle" stretch="aspectFill"></Image>
+                        <Label [text]="country.name" class="t-12"
+                            verticalAlignment="center" style="width: 60%">
+                        </Label>
+                    </FlexboxLayout>
+                </ng-template>
+            </ListView>  
             <PullToRefresh (refresh)="onPull($event)" indicatorFillColor="#fff000" indicatorColor="#3489db">
-            <!-- 
-                <ListView [items]="countries" (itemTap)="onItemTap($event)"
-                    style="height:1250px">
-                    <ng-template let-country="item">
+                <ListView [items]="resultados" style="height:200px">
+                    <ng-template let-x="item">
                         <FlexboxLayout flexDirection="row">
-                            <Image [src]="country.imageSrc" class="thumb img-circle" stretch="aspectFill"></Image>
                             <Image src="res://logo" class="thumb img-circle" stretch="aspectFill"></Image>
-                            <Label [text]="country.name" class="t-12"
+                            <Label [text]="x" class="t-12"
                                 verticalAlignment="center" style="width: 60%">
                             </Label>
                         </FlexboxLayout>
                     </ng-template>
-                </ListView> 
-            -->
-                <ListView [items]="resultados" (itemTap)="onItemTap($event)"
+                </ListView>  
+            </PullToRefresh>
+            <!-- <PullToRefresh (refresh)="onPull($event)" indicatorFillColor="#fff000" indicatorColor="#3489db">
+                <ListView [items]="this.resultados" (itemTap)="onItemTap($event)"
                     style="height:1250px">
                     <ng-template let-x="item">
                         <FlexboxLayout flexDirection="row">
@@ -57,7 +65,7 @@
                         </FlexboxLayout>
                     </ng-template>
                 </ListView> 
-            </PullToRefresh>
+            </PullToRefresh> -->
             <!-- <ios>
                 <label class="color" text="Linea Visible an IOS"></label>
             </ios>
@@ -69,4 +77,3 @@
         </StackLayout>
     </ScrollView>
 </GridLayout>
- 

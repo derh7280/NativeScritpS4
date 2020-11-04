@@ -13,28 +13,29 @@ import { RouterExtensions } from "@nativescript/angular";
 export class BrowseComponent implements OnInit {
 
     countries: { name: string, imageSrc: string }[] = [
-        { name: "Australia", imageSrc: "https://play.nativescript.org/dist/assets/img/flags/au.png" },
-        { name: "Belgium", imageSrc: "https://play.nativescript.org/dist/assets/img/flags/be.png" },
-        { name: "Bulgaria", imageSrc: "https://play.nativescript.org/dist/assets/img/flags/bg.png" },
-        { name: "Canada", imageSrc: "https://play.nativescript.org/dist/assets/img/flags/ca.png" },
-        { name: "Switzerland", imageSrc: "https://play.nativescript.org/dist/assets/img/flags/ch.png" },
-        { name: "China", imageSrc: "https://play.nativescript.org/dist/assets/img/flags/cn.png" },
-        { name: "Czech Republic", imageSrc: "https://play.nativescript.org/dist/assets/img/flags/cz.png" },
-        { name: "Germany", imageSrc: "https://play.nativescript.org/dist/assets/img/flags/de.png" },
-        { name: "Spain", imageSrc: "https://play.nativescript.org/dist/assets/img/flags/es.png" },
-        { name: "Ethiopia", imageSrc: "https://play.nativescript.org/dist/assets/img/flags/et.png" },
-        { name: "Croatia", imageSrc: "https://play.nativescript.org/dist/assets/img/flags/hr.png" },
-        { name: "Hungary", imageSrc: "https://play.nativescript.org/dist/assets/img/flags/hu.png" },
-        { name: "Italy", imageSrc: "https://play.nativescript.org/dist/assets/img/flags/it.png" },
-        { name: "Jamaica", imageSrc: "https://play.nativescript.org/dist/assets/img/flags/jm.png" },
-        { name: "Romania", imageSrc: "https://play.nativescript.org/dist/assets/img/flags/ro.png" },
-        { name: "Russia", imageSrc: "https://play.nativescript.org/dist/assets/img/flags/ru.png" },
-        { name: "United States", imageSrc: "https://play.nativescript.org/dist/assets/img/flags/us.png" },
+        { name: "Australia", imageSrc: "res://logo" },
+        { name: "Belgium", imageSrc: "res://logo" },
+        { name: "Bulgaria", imageSrc: "res://logo" },
+        { name: "Canada", imageSrc: "res://logo" },
+        { name: "Switzerland", imageSrc: "res://logo" },
+        { name: "China", imageSrc: "res://logo" },
+        { name: "Czech Republic", imageSrc: "res://logo" },
+        { name: "Germany", imageSrc: "res://logo" },
+        { name: "Spain", imageSrc: "res://logo" },
+        { name: "Ethiopia", imageSrc: "res://logo" },
+        { name: "Croatia", imageSrc: "res://logo" },
+        { name: "Hungary", imageSrc: "res://logo" },
+        { name: "Italy", imageSrc: "res://logo" },
+        { name: "Jamaica", imageSrc: "res://logo" },
+        { name: "Romania", imageSrc: "res://logo" },
+        { name: "Russia", imageSrc: "res://logo" },
+        { name: "United States", imageSrc: "res://logo" }
     ];
 
     private _person: Person;
     public lineav: string;
-    resultados: Array<string> = [];
+    public resultados: Array<string> = [];
+
     constructor(private routerExtensions: RouterExtensions, ) {
         this.lineav="Linea mostrada en Android ";
     }
@@ -44,6 +45,7 @@ export class BrowseComponent implements OnInit {
         const pullRefresh = e.object;
         setTimeout(() => {
             this.resultados.push("xxxxxxx");
+            this.countries.push({name:"xxxx", imageSrc:"res://icon" })
             pullRefresh.refreshing = false;
         }, 1000);
        }

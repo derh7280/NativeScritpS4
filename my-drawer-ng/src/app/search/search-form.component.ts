@@ -25,7 +25,7 @@ import { MinLenDirective } from "../directivas/minLen.validator";
 
 export class SearchFormComponent implements OnInit{
     textFieldValue: string = "";
-    textoBoton: string="Parar"
+    textoBoton: string="Parar";
     @Output() search: EventEmitter<string> = new EventEmitter();
     @Input() inicial: string;
     // constructor(public noticias: NoticiasService) {

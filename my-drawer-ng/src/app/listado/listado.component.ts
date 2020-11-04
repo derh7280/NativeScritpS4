@@ -1,4 +1,3 @@
-
 import { Component, OnInit, PLATFORM_INITIALIZER } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { Application, ItemEventData } from "@nativescript/core";
@@ -33,7 +32,6 @@ export class ListadoComponent implements OnInit {
     onItemTap(args: ItemEventData): void {
         console.log('Item con index: ' + args.index);
         this.routerExtensions.navigate(['/vista'],{ 
-            nombre="";
             transition: {
                 name: "fade"
             }
