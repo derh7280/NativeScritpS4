@@ -12,7 +12,8 @@ const routes: Routes = [
     { path: "featured", loadChildren: () => import("~/app/featured/featured.module").then((m) => m.FeaturedModule) },
     { path: "settings", loadChildren: () => import("~/app/settings/settings.module").then((m) => m.SettingsModule) },
     { path: "support", loadChildren: () => import("~/app/support/support.module").then((m) => m.SupportModule) },
-    { path: "events", loadChildren: () => import("~/app/events/events.module").then((m) => m.EventsModule) }
+    { path: "events", loadChildren: () => import("~/app/events/events.module").then((m) => m.EventsModule) },
+    { path: "formedicion", loadChildren: () => import("~/app/formedicion/formedicion.module").then((m) => m.FormedicionModule) }
 ];
 
 @NgModule({

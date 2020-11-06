@@ -8,6 +8,8 @@ import { AppComponent } from "./app.component";
 import { NoticiasService } from "./domain/noticias.service";
 import { Person } from "./domain/personas.service";
 
+import * as appSettings from "@nativescript/core/application-settings" //"tns-core-modules/application-settings"; 
+
 @NgModule({
     bootstrap: [
         AppComponent
