@@ -24,6 +24,7 @@ import * as appSettings from "@nativescript/core/application-settings" //"tns-co
                 NoticiasService,
                 Person
     ],
+
     declarations: [
         AppComponent
     ],

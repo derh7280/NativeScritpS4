@@ -1,4 +1,4 @@
-<ActionBar>
+<ActionBar title="Edición de usuario">
     <!-- 
     Use the NavigationButton as a side-drawer button in Android
     because ActionItems are shown on the right side of the ActionBar
@@ -12,18 +12,28 @@
     <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
         ios.position="left"> 
     </ActionItem>
-    <Label text="Inicio"></Label>
+    <!-- <Label text="Edicion de usuario"></Label> -->
 </ActionBar> 
  
-
-    <GridLayout class="page__content">
-       <!-- <Label class="page__content-icon fas" text="&#xf015;"></Label> 
-            <Label class="page__content-placeholder" text="Bienvenido"></Label> -->  
-        <ScrollView>  
+<GridLayout>
+    <ScrollView>
+        <!-- <StackLayout class="page__content"> -->
+        <StackLayout class="home-panel" #layout>    
             <StackLayout>
-                <Label class="page__content-icon fas" text="&#xf015;"></Label> 
-                <TextField text="Anonimo" class="page__content-placeholder" ></TextField>
-                <Button class="-primary" text="Guardar" tap="toSaveRedirect('/settigs')"></Button>
-            </StackLayout> 
-        </ScrollView>
-    </GridLayout>
+                <Label class="page__content-icon fas" text="&#xf002;"></Label>
+            </StackLayout>
+            <EditionForm (search)="toSaveRedirect($event, '/settings')" [inicial]="txtUserValue" ></EditionForm>
+            <!-- <Label class="page__content-placeholder" *ngFor="let s of this.noticias.buscar()" [text]="s"></Label> -->
+            <!-- <ListView class="list-group" [items]="this.resultados" style="height:1250px">
+                <ng-template let-x="item">
+                    <FlexboxLayout flexDirection="row">
+                        <Image src="res://icon" class="thumb img-circle" stretch="aspectFill"></Image>
+                        <Label [text]="x" class="list-group-item-heading"
+                            verticalAlignment="center" style="width: 60%">
+                        </Label>
+                    </FlexboxLayout>
+                </ng-template>
+            </ListView> -->
+        </StackLayout> 
+    </ScrollView>
+</GridLayout>

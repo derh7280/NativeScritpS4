@@ -27,7 +27,7 @@ export class SearchFormComponent implements OnInit{
     textFieldValue: string = "";
     textoBoton: string="Parar";
     @Output() search: EventEmitter<string> = new EventEmitter();
-    @Input() inicial: string;
+    @Input() inicial: string; 
     // constructor(public noticias: NoticiasService) {
     //     // Use the component constructor to inject providers.
     // }

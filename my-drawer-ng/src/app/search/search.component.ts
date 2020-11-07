@@ -33,6 +33,12 @@ export class SearchComponent implements OnInit {
        
     }
 
+    onItemFavorito(evento, noti): void{
+        console.dir("Item agregado a favorito: " + noti);
+        Toast.show({text: noti +" item agregado a favorito ", duration: Toast.DURATION.SHORT});
+        this.insertarFavorito(noti);
+    } 
+
     onDrawerButtonTap(): void {
         const sideDrawer = <RadSideDrawer>Application.getRootView();
         sideDrawer.showDrawer();
@@ -56,6 +62,17 @@ export class SearchComponent implements OnInit {
         }, (e) => {
             console.log("Error buscarAhora: " + e );
             Toast.show({text:"Error en la busqueda", duration: Toast.DURATION.SHORT});
+        });
+    }
+
+    insertarFavorito(s: string){
+        console.dir("Insertando a favoritos item: " + s);
+        this.noticias.agregar(s).then(( r: any) => {
+            console.log("Resultados insertarFavorito: " + JSON.stringify(r));
+            // this.resultados = r;
+        }, (e) => {
+            console.log("insertarFavorito: " + e );
+            Toast.show({text:"Error en insertar favorito", duration: Toast.DURATION.SHORT});
         });
     }
 }

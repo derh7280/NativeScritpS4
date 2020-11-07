@@ -1,25 +1,41 @@
-<ActionBar>
-    <!-- 
-    Use the NavigationButton as a side-drawer button in Android
-    because ActionItems are shown on the right side of the ActionBar
-    -->
+<ActionBar title="Favoritos">
     <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
-    <!-- 
-    Use the ActionItem for IOS with position set to left. Using the
-    NavigationButton as a side-drawer button in iOS is not possible,
-    because its function is to always navigate back in the application.
-    -->
     <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
         ios.position="left">
     </ActionItem>
-    <Label text="Destacados"></Label>
+    <!-- <Label text="Destacados"></Label> -->
+    <ActionItem position="left" icon="font://&#xf0a8;" class="fas" (tap)="goBack()"></ActionItem>
+    <ActionItem icon="font://&#xf055;" class="fas" ios.position="right" (tap)="onNavItemTap('/search')"></ActionItem>
+    <ActionItem icon="font://&#xf2f1;" class="fas" ios.position="left" (tap)="onLoadFavorito()"></ActionItem>
 </ActionBar>
-
-<GridLayout class="page__content">
+<!-- <ActionBar title="SQL App">
+    <ActionItem text="Add" ios.position="right" (tap)="insert()"></ActionItem>
+    <ActionItem text="Refresh" ios.position="left" (tap)="onLoadFavorito()"></ActionItem>
+</ActionBar> --> 
+<GridLayout class=""> 
     <Label class="page__content-icon fas" text="&#xf005;"></Label>
-    <Label class="page__content-placeholder" text="<!-- El contenido de la página va aquí -->"></Label>
-
+<!--    
+    <Label class="page__content-placeholder" text="El contenido de la página va aquí"></Label>
     <GridLayout class="bg-primary p-15 m-15" width="200" height="200" (longPress)="onLongPress($event)">
         <Image class="img-rounded" src="res://icon" stretch="aspectFill"></Image>
-    </GridLayout>
+    </GridLayout> 
+-->
+    <GridLayout class="p-15 m-15">
+        <ListView class="list-group" [items]="this.resultados">    
+            <ng-template let-x="item">
+                <FlexboxLayout flexDirection="row">
+                    <Label class="fas" text="&#xf005;" style="width: 10%; color: #ffcc00;" verticalAlignment="center" ></Label>
+                    <Label [text]="x" class="list-group-item-heading" verticalAlignment="center" style="width: 60%"></Label>
+                </FlexboxLayout>
+            </ng-template> 
+        </ListView> 
+    </GridLayout> 
+
+    <!-- <StackLayout>
+        <ListView [items]="resultados">
+            <ng-template let-x="item">
+                <Label text="{{x}}"></Label>
+            </ng-template>
+        </ListView>
+    </StackLayout> -->
 </GridLayout>

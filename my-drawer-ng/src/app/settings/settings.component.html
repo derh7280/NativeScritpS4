@@ -1,27 +1,4 @@
-<!-- 
-<ActionBar>
-
-    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
-
-    <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
-        ios.position="left">
-    </ActionItem>
-    <Label col="1" text="nombreUsuario" class="p-r-10"></Label>
-    <button text="&#xf14b;" class="nt-icon fas" (tap)="onNavItemTap('/formedicion')"></button>
-</ActionBar>
- 
-<ScrollView>  
-        <ListView [items]="OpcionesConfig">    
-            <ng-template let-x="item">
-                <FlexboxLayout flexDirection="column">
-                    <button class="nt-button -primary" [text]="x.name" (tap)="displayAlertDialog('Información','Click en el boton ' + x.name)"></button>
-                    <button class="nt-button -outline -rounded-lg" text="Seleccion" (tap)="displayCategoria('Categoria','Selecciona una opcion de la lista', ['Categoria 1', 'Categoria 2', 'Categoria 3', 'Categoria 4', 'Categoria 5'], true)" ></button>                   
-                </FlexboxLayout> 
-            </ng-template> 
-        </ListView>       
-</ScrollView> 
--->
-<ActionBar>
+<ActionBar title="Configuraciónes">
     <!-- 
     Use the NavigationButton as a side-drawer button in Android
     because ActionItems are shown on the right side of the ActionBar
@@ -35,7 +12,7 @@
     <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
         ios.position="left">
     </ActionItem>
-    <Label text="Configuraciónes"></Label>
+    <!-- <Label text="Configuraciónes"></Label> -->
 </ActionBar>
  
 <!-- 
@@ -46,9 +23,9 @@
  -->
 
 <ScrollView> 
-    
+     
     <FlexboxLayout flexDirection="column">
-        <Label col="1" text="nombreUsuario" class="p-r-10"></Label>
+        <Label col="1" [text]="usuario" class="p-r-10"></Label>
         <button text="Editar usuario &#xf14b;" class="-primary nt-icon fas" (tap)="onNavItemTap('/formedicion')"></button> 
     </FlexboxLayout>
 <!-- 

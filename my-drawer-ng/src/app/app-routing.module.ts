@@ -13,7 +13,7 @@ const routes: Routes = [
     { path: "settings", loadChildren: () => import("~/app/settings/settings.module").then((m) => m.SettingsModule) },
     { path: "support", loadChildren: () => import("~/app/support/support.module").then((m) => m.SupportModule) },
     { path: "events", loadChildren: () => import("~/app/events/events.module").then((m) => m.EventsModule) },
-    { path: "formedicion", loadChildren: () => import("~/app/formedicion/formedicion.module").then((m) => m.FormedicionModule) }
+    { path: "formedicion", loadChildren: () => import("~/app/formEdicion/formedicion.module").then((m) => m.FormedicionModule) }
 ];
 
 @NgModule({

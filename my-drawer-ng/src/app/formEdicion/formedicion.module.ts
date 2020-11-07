@@ -1,17 +1,19 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
-import { NativeScriptCommonModule } from "@nativescript/angular";
+import { NativeScriptCommonModule, NativeScriptFormsModule } from "@nativescript/angular";
+// import { MinLenDirective } from "../directivas/minLen.validator";
 
+import { EditionFormComponent } from "./edicion-form.component";
 import { FormedicionRoutingModule } from "./formedicion-routing.module";
 import { FormedicionComponent } from "./formedicion.component";
-
-// import { MinLenDirective } from "../directivas/minLen.validator"; 
 
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        FormedicionRoutingModule
+        FormedicionRoutingModule,
+        NativeScriptFormsModule
     ],
     declarations: [ 
+        EditionFormComponent,
         FormedicionComponent
         // MinLenDirective
     ],

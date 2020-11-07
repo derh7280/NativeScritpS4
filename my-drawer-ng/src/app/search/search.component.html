@@ -1,4 +1,4 @@
-<ActionBar>
+<ActionBar title="Consulta">
     <!-- 
     Use the NavigationButton as a side-drawer button in Android
     because ActionItems are shown on the right side of the ActionBar
@@ -12,7 +12,7 @@
     <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
         ios.position="left">
     </ActionItem>
-    <Label text="Consulta"></Label>
+    <!-- <Label text="Consulta"></Label> -->
 </ActionBar> 
 
 <GridLayout>
@@ -24,14 +24,16 @@
             </StackLayout>
             <SearchForm (search)="buscarAhora($event)" [inicial]="'Futbol'" ></SearchForm>
             <!-- <Label class="page__content-placeholder" *ngFor="let s of this.noticias.buscar()" [text]="s"></Label> -->
-            <ListView class="list-group" [items]="this.resultados" (itemTap)="onItemTap($event)"
-            style="height:1250px">
+            <!-- <ListView class="list-group" [items]="this.resultados" (itemTap)="onItemTap($event)" style="height:1250px"> -->
+                <ListView class="list-group" [items]="this.resultados" style="height:1250px">    
                 <ng-template let-x="item">
                     <FlexboxLayout flexDirection="row">
                         <Image src="res://icon" class="thumb img-circle" stretch="aspectFill"></Image>
                         <Label [text]="x" class="list-group-item-heading"
                             verticalAlignment="center" style="width: 60%">
                         </Label>
+                        <!--color: #ffcc00; (tap)="onTap($event, x)" *ngIf="x.favorita" -->
+                        <Label class="fas" text="&#xf005;" style="width: 10%; color: #ffcc00;" verticalAlignment="center" (tap)="onItemFavorito($event, x)" ></Label>
                     </FlexboxLayout>
                 </ng-template>
             </ListView>
