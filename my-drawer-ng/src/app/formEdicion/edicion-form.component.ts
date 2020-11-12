@@ -11,13 +11,14 @@ import { ItemEventData } from "@nativescript/core/ui/list-view"
     `<FlexboxLayout flexDirection="column">
         <TextField #txtUser="ngModel" [(ngModel)]="txtUserValue" hint="Ingresar texto..." required  minlen="4"></TextField>
         <Label *ngIf="txtUser.hasError('required')" text="Nombre de usuario es obligatorio"></Label>
-    </FlexboxLayout>
+     </FlexboxLayout>
     <Button text="Guardar" class="-primary" (tap)="onButtonTap()" *ngIf="txtUser.valid"></Button>
    ` 
 })
 
 export class EditionFormComponent implements OnInit{
     txtUserValue: string = "";
+    txtEmailValue: string = "";
     @Output() search: EventEmitter<string> = new EventEmitter();
     @Input() inicial: string; 
 

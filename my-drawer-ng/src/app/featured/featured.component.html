@@ -23,9 +23,16 @@
     <GridLayout class="p-15 m-15">
         <ListView class="list-group" [items]="this.resultados">    
             <ng-template let-x="item">
-                <FlexboxLayout flexDirection="row">
+                <FlexboxLayout flexDirection="row" verticalAlignment="center" >
                     <Label class="fas" text="&#xf005;" style="width: 10%; color: #ffcc00;" verticalAlignment="center" ></Label>
                     <Label [text]="x" class="list-group-item-heading" verticalAlignment="center" style="width: 60%"></Label>
+                    <!-- <Label class="fab" text="&#xf4d5;" style="color: blue;" verticalAlignment="center" ></Label> -->
+                    <Button style="color: royalblue;" style="width: 25%;" (tap)="ToReadNow($event, x)">
+                        <FormattedString>
+                            <Span text="&#xf4d5;" class="fab"></Span>
+                            <!-- <Span text="Leer"></Span> -->
+                        </FormattedString>
+                    </Button>
                 </FlexboxLayout>
             </ng-template> 
         </ListView> 

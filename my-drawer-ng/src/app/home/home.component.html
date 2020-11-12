@@ -13,12 +13,13 @@
         ios.position="left">
     </ActionItem>
     <!-- <Label text="Inicio"></Label> -->
+    <ActionItem icon="font://&#xf2f1;" class="fas" ios.position="left" (tap)="onLoadReadFavorito()"></ActionItem>
 </ActionBar>
  
-
-    <GridLayout class="page__content">
        <!-- <Label class="page__content-icon fas" text="&#xf015;"></Label> 
             <Label class="page__content-placeholder" text="Bienvenido"></Label> -->  
+
+    <!-- <GridLayout class="page__content">
         <ScrollView>  
             <StackLayout>
                 <Label class="page__content-icon fas" text="&#xf015;"></Label> 
@@ -27,4 +28,15 @@
                 <Label textWrap="true" class="h2 description-label" text="Estamos haciendo todo lo posible para superar rápidamente estas novedades." ></Label>
             </StackLayout> 
         </ScrollView>
-    </GridLayout>
+    </GridLayout> -->
+    <GridLayout class="p-15 m-15">
+        <ListView class="list-group" [items]="this.resultados">    
+            <ng-template let-x="item">
+                <FlexboxLayout flexDirection="row" verticalAlignment="center" >
+                    <Label class="fab" text="&#xf4d5;" style="width: 10%; color: #ffcc00;" verticalAlignment="center" ></Label>
+                    <Label [text]="x" class="list-group-item-heading" verticalAlignment="center" style="width: 60%"></Label>
+                    <Label class="-danger fas" text="&#xf2ed;" verticalAlignment="center" (tap)="deleteFavorito($event, x)"></Label>
+                </FlexboxLayout>
+            </ng-template> 
+        </ListView> 
+    </GridLayout> 

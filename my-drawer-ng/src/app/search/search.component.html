@@ -14,7 +14,7 @@
     </ActionItem>
     <!-- <Label text="Consulta"></Label> -->
 </ActionBar> 
-
+ 
 <GridLayout>
     <ScrollView>
         <!-- <StackLayout class="page__content"> -->
@@ -25,7 +25,7 @@
             <SearchForm (search)="buscarAhora($event)" [inicial]="'Futbol'" ></SearchForm>
             <!-- <Label class="page__content-placeholder" *ngFor="let s of this.noticias.buscar()" [text]="s"></Label> -->
             <!-- <ListView class="list-group" [items]="this.resultados" (itemTap)="onItemTap($event)" style="height:1250px"> -->
-                <ListView class="list-group" [items]="this.resultados" style="height:1250px">    
+                <ListView class="list-group" [items]="this.resultados" (itemTap)="onItemTap($event)" style="height:1250px">    
                 <ng-template let-x="item">
                     <FlexboxLayout flexDirection="row">
                         <Image src="res://icon" class="thumb img-circle" stretch="aspectFill"></Image>

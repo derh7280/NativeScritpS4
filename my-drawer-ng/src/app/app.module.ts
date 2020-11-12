@@ -3,12 +3,28 @@ import { NativeScriptModule } from "@nativescript/angular";
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular";
 import { NativeScriptUIDataFormModule } from "nativescript-ui-dataform/angular";
 
+import { EffectsModule} from "@ngrx/effects";
+import { ActionReducerMap, StoreModule as NgRxStoreStoreModule } from "@ngrx/store";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { intializeNoticiasState, NoticiasEffects, NoticiasState, reducerNoticias } from "./domain/noticias-state.model";
 import { NoticiasService } from "./domain/noticias.service";
 import { Person } from "./domain/personas.service";
 
-import * as appSettings from "@nativescript/core/application-settings" //"tns-core-modules/application-settings"; 
+//redux init
+//tslint: disable-next-line: interface-name
+export interface AppState {
+    noticias: NoticiasState;
+}
+
+const reducers: ActionReducerMap<AppState> = {
+    noticias: reducerNoticias
+};
+
+const reducersInitalState = {
+    noticias: intializeNoticiasState()
+};
+// fin redux init
 
 @NgModule({
     bootstrap: [
@@ -18,7 +34,9 @@ import * as appSettings from "@nativescript/core/application-settings" //"tns-co
         AppRoutingModule,
         NativeScriptModule,
         NativeScriptUISideDrawerModule,
-        NativeScriptUIDataFormModule
+        NativeScriptUIDataFormModule,
+        NgRxStoreStoreModule.forRoot(reducers, { initialState: reducersInitalState}),
+        EffectsModule.forRoot([NoticiasEffects])
     ],
     providers: [
                 NoticiasService,

@@ -3,7 +3,7 @@ import { NavigationEnd, Router } from "@angular/router";
 import { RouterExtensions } from "@nativescript/angular";
 import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from "nativescript-ui-sidedrawer";
 import { filter } from "rxjs/operators";
-import { Application } from "@nativescript/core";
+import { Application, ApplicationSettings } from "@nativescript/core";
 
 @Component({
     selector: "ns-app",
@@ -12,12 +12,13 @@ import { Application } from "@nativescript/core";
 export class AppComponent implements OnInit {
     private _activatedUrl: string;
     private _sideDrawerTransition: DrawerTransitionBase;
-
+    public UsuarioActivo:string; 
     constructor(private router: Router, private routerExtensions: RouterExtensions) {
         // Use the component constructor to inject services.
     }
-
+ 
     ngOnInit(): void {
+        this.UsuarioActivo = ApplicationSettings.getString("nombreUsuario", "Anonimo"); 
         this._activatedUrl = "/home";
         this._sideDrawerTransition = new SlideInOnTopTransition();
 

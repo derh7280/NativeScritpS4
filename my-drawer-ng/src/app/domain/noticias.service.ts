@@ -1,19 +1,20 @@
 import { Injectable } from "@angular/core";
-import * as couchbaseModule from "nativescript-couchbase"; 
+import { Couchbase } from "nativescript-couchbase";
 // import couchbaseModule = require("nativescript-couchbase"); 
 import { getJSON, request } from "@nativescript/core/http";
 const sqlite = require("nativescript-sqlite");
 
 @Injectable()
 export class NoticiasService    {
-    api: string ="https://0230b734463a.ngrok.io";
+    api: string ="https://bf3df2f12245.ngrok.io";
     private database: any;//instancia SQLite abierta 
     public noticiero: Array<any>;//los resultados de las consulta.
-    databaseDoc: couchbaseModule.Couchbase; 
+    databaseDoc: Couchbase; 
 
     constructor(){
         // this.CreateDB("mi_db_logs");
-        this.databaseDoc = new couchbaseModule.Couchbase("test-database"); 
+        this.databaseDoc = new Couchbase("test-database"); 
+
         this.getDB((db) => {
             console.dir(db);
             db.each("SELECT * FROM logs",
@@ -21,10 +22,12 @@ export class NoticiasService    {
                 (err, totales) => console.log("Filas totales: ", totales));
         }, () => console.log("error en getDB"));
         this.CreateTable("mi_db_logs","favoritos","id INTEGER PRIMARY KEY AUTOINCREMENT, texto TEXT");
+        
         this.databaseDoc.createView("logs", "1", (document, emitter) =>
         emitter.emit(document._id, document));
-        const rows = this.database.executeQuery("logs", {limit : 200});
+        const rows = this.databaseDoc.executeQuery("logs", {limit : 200});
         console.log("documentos: " + JSON.stringify(rows)); 
+ 
     }
 
     CreateDB(DBname) {
@@ -74,7 +77,7 @@ export class NoticiasService    {
                     });
             }
         });
-    }
+    } 
 
     agregar(s: string)  {
         this.getDB((db) => {
@@ -105,6 +108,30 @@ export class NoticiasService    {
             }, error => {
                 console.log("SELECT ERROR", error);
             });
+        }, () => console.log("error on getDB"));
+        return getJSON(this.api + "/favs");
+    }
+
+    deletefav(s: string)  {
+        this.getDB((db) => {
+            db.execSQL("DELETE FROM favoritos WHERE texto='" + s+"'", 
+                (err, id) => console.log("delete favorito: ", id));
+        }, () => console.log("error on getDB"));
+        // return getJSON(this.api + "/favs");
+        return request({
+            url: this.api + "/favs",
+            method: "DELETE",
+            headers: {"Content-Type" : "application/json"},
+            content: JSON.stringify({
+                delete:s
+            })
+        });
+    }
+
+    consultafav(s: string)  {
+        this.getDB((db) => {
+            db.execSQL("SELECT * FROM favoritos WHERE texto='" + s+"'", 
+                (err, id) => console.log("Favorito ya existe: ", id));
         }, () => console.log("error on getDB"));
         return getJSON(this.api + "/favs");
     }

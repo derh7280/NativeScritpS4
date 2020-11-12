@@ -5,6 +5,9 @@ import { NoticiasService } from "../domain/noticias.service";
 import * as dialogs from "@nativescript/core/ui/dialogs"// tns-core-modules/ui/dialogs";
 import * as Toast from "nativescript-toasts";
 import { RouterExtensions } from "@nativescript/angular";
+import { Store } from "@ngrx/store";
+import { AppState } from "../app.module";
+import { Noticia, NuevaNoticiaAction } from "../domain/noticias-state.model";
 
 @Component({
     selector: "Featured",
@@ -14,13 +17,23 @@ export class FeaturedComponent implements OnInit {
     @ViewChild("layout") layout: ElementRef;
     resultados: Array<string>;
     noticiero: { Titulo: string }[]; 
-    constructor(private noticias: NoticiasService, private routerExtensions: RouterExtensions) {
+    constructor( private routerExtensions: RouterExtensions, private noticias: NoticiasService, private store: Store<AppState>) {
         // Use the component constructor to inject providers.
     }
 
     ngOnInit(): void {
         // Init your component properties here.
         this.onLoadFavorito()
+        //const array1 = ['a', 'b', 'c'];
+        // array1.forEach(element => console.dir(element));
+        this.store.select((state) => state.noticias.sugerida)
+        .subscribe((data) =>{
+            const f = data;
+            if (f != null){
+                Toast.show({text:"Sugerimos leer: " + f.titulo, duration: Toast.DURATION.SHORT});
+            }
+        }
+        );
     }
 
     onLongPress(args: GestureEventData){
@@ -33,8 +46,30 @@ export class FeaturedComponent implements OnInit {
         grid.animate({ 
             rotate:360,
             duration:2000
-        });
+        });  
     }
+    // onItemFavorito(evento, noti): void{
+    //     console.dir("Operacion agregar a favorito: " + noti);
+    //     this.insertarFavorito(noti);
+    // } 
+
+    ToReadNow(evento, x): void{
+        console.dir("Operacion leer ahora: " + x);
+        this.store.dispatch(new NuevaNoticiaAction(new Noticia(x)));
+    }
+
+    // const inventario = [
+    //     {nombre: 'manzanas', cantidad: 2},
+    //     {nombre: 'bananas', cantidad: 0},
+    //     {nombre: 'cerezas', cantidad: 5}
+    // ];
+    
+    // verificarFavorito(favorito) { 
+
+    //     return  favorito.nombre === 'manzanas';
+    // }
+    
+    // console.log(inventario.find(verificarFavorito));
 
     goBack(){
         this.routerExtensions.backToPreviousPage();
