@@ -2,9 +2,9 @@ import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from "
 import { Store }from "@ngrx/store";
 import * as dialogs from "@nativescript/core/ui/dialogs"// tns-core-modules/ui/dialogs";
 import * as Toast from "nativescript-toasts";
-
+import * as SocialShare from "nativescript-social-share";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
-import { Application, Color, colorProperty, TextField, View } from "@nativescript/core";
+import { Application, Color, colorProperty, TextField, View, ImageSource } from "@nativescript/core";
 import { AppState } from "../app.module"
 import { Noticia, NuevaNoticiaAction } from "../domain/noticias-state.model";
 import { NoticiasService } from "../domain/noticias.service";
@@ -34,6 +34,28 @@ export class SearchComponent implements OnInit {
         console.dir('Item con index: ' + x);
         // this.store.dispatch(new NuevaNoticiaAction(new Noticia(x.view.bindingContext)));
     }
+
+    onLongPress(s):void {
+        console.log(s); 
+        SocialShare.shareText(s, "Asunto: compartido desde el curso");
+    }
+
+    public shareImagen():void{
+        console.dir("Compartiendo Imagen");
+        // let imagen = ImageSource.fromFile("~/res/img/logo.png");//~/path/to/myImage.jpg
+        // //let image = ImageSource.fromUrl("https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png");
+        // SocialShare.shareImage(imagen, "Imagen compartida");
+
+        ImageSource.fromUrl("https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png").then((image) => {
+            SocialShare.shareImage(image, "Imagen compartida");
+        }); 
+    } 
+
+    public shareTexto(s):void{
+        console.log(s); 
+        SocialShare.shareText(s, "Asunto: Texto compartido desde el curso");
+    } 
+
 
     ngOnInit(): void {
     //    this.store.select((state) => state.noticias.sugerida)

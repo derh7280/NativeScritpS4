@@ -23,12 +23,14 @@
                 <Label class="page__content-icon fas" text="&#xf002;"></Label>
             </StackLayout>
             <SearchForm (search)="buscarAhora($event)" [inicial]="'Futbol'" ></SearchForm>
+            <Button text="Compartir Imagen" class="-primary" (tap)="shareImagen()"></Button> 
+            <Button text="Compartir Texto" class="-outline btn btn-active" (tap)="shareTexto('Soy un texto compartido')"></Button> 
             <!-- <Label class="page__content-placeholder" *ngFor="let s of this.noticias.buscar()" [text]="s"></Label> -->
             <!-- <ListView class="list-group" [items]="this.resultados" (itemTap)="onItemTap($event)" style="height:1250px"> -->
                 <ListView class="list-group" [items]="this.resultados" (itemTap)="onItemTap($event)" style="height:1250px">    
                 <ng-template let-x="item">
                     <FlexboxLayout flexDirection="row">
-                        <Image src="res://icon" class="thumb img-circle" stretch="aspectFill"></Image>
+                        <Image src="res://icon" class="thumb img-circle" stretch="aspectFill" (longPress)="onLongPress(x)"></Image>
                         <Label [text]="x" class="list-group-item-heading"
                             verticalAlignment="center" style="width: 60%">
                         </Label>

@@ -3,10 +3,10 @@ import { Couchbase } from "nativescript-couchbase";
 // import couchbaseModule = require("nativescript-couchbase"); 
 import { getJSON, request } from "@nativescript/core/http";
 const sqlite = require("nativescript-sqlite");
-
+ 
 @Injectable()
 export class NoticiasService    {
-    api: string ="https://bf3df2f12245.ngrok.io";
+    api: string ="https://26f1aa4c7e10.ngrok.io";
     private database: any;//instancia SQLite abierta 
     public noticiero: Array<any>;//los resultados de las consulta.
     databaseDoc: Couchbase; 
