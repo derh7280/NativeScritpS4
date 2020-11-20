@@ -18,4 +18,8 @@
 <StackLayout class="page__content">
     <Label class="page__content-icon fas" text="&#xf590;"></Label>
     <Label class="page__content-placeholder" *ngFor="let s of this.agentes.buscar()" [text]="s"></Label>
+    <FlexboxLayout flexDirection="column">
+        <TextField [text]="textFieldValue" hint="Nombre" maxLength="100" ></TextField>
+    </FlexboxLayout>
+    <Button text="Enviar Email" class="-outline btn btn-active" (tap)="onSendMail('Duhan')"></Button>
 </StackLayout>

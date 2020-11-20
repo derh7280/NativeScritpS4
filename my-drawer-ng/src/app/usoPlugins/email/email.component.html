@@ -1,0 +1,27 @@
+<ActionBar title="Email">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <ActionItem icon="font://&#xf0a8;" class="fas" (tap)="this.plugins.goBack()"></ActionItem>
+</ActionBar> 
+ 
+<GridLayout>
+    <!-- <ScrollView>
+        <StackLayout class="page__content">
+            <StackLayout>
+                <Label class="page__content-icon fas" text="&#xf1e1;"></Label>
+            </StackLayout>
+            <Button text="Compartir Imagen" class="-primary" (tap)="this.plugins.shareImagen()"></Button> 
+            <Button text="Compartir Texto" class="-outline btn btn-active" (tap)="this.plugins.shareTexto('Soy un texto compartido')"></Button> 
+        </StackLayout> 
+    </ScrollView> -->
+
+    <StackLayout class="page__content">
+        <Label class="page__content-icon fas" text="&#xf658;"></Label>
+        <FlexboxLayout flexDirection="column">
+            <TextField [text]="textFieldValue" hint="Nombre de contacto" maxLength="100" ></TextField>
+        </FlexboxLayout>
+        <Button text="Enviar Email" class="-outline btn btn-active" (tap)="this.plugins.onSendMail(textFieldValue)"></Button>
+    </StackLayout>
+</GridLayout> 

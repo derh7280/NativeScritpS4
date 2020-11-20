@@ -1,0 +1,21 @@
+<ActionBar title="Compartir">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <ActionItem icon="font://&#xf0a8;" class="fas" (tap)="this.plugins.goBack()"></ActionItem>
+</ActionBar> 
+ 
+<GridLayout>
+    <ScrollView>
+        <StackLayout class="page__content">
+            <StackLayout>
+                <Label class="page__content-icon fas" text="&#xf1e1;"></Label>
+            </StackLayout>
+            <StackLayout>
+                <Image src="res://logo" stretch="aspectFit"></Image>
+            </StackLayout>
+            <Button text="Tomar foto" class="-primary" (tap)="this.plugins.goCamera()"></Button> 
+        </StackLayout> 
+    </ScrollView>
+</GridLayout> 

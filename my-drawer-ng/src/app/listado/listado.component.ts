@@ -28,7 +28,7 @@ export class ListadoComponent implements OnInit {
  
     constructor(private routerExtensions: RouterExtensions) {
     }
-
+ 
     onItemTap(args: ItemEventData): void {
         console.log('Item con index: ' + args.index);
         this.routerExtensions.navigate(['/vista'],{ 

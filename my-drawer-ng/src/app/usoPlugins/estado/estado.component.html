@@ -1,0 +1,29 @@
+<ActionBar title="Estado red">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <ActionItem icon="font://&#xf0a8;" class="fas" (tap)="this.plugins.goBack()"></ActionItem>
+    <ActionItem icon="font://&#xf2f1;" class="fas" ios.position="left" (tap)="toRefresh()"></ActionItem>
+</ActionBar> 
+ 
+<!-- <GridLayout>
+    <ScrollView>
+        <StackLayout class="page__content">
+            <StackLayout>
+                <Label class="page__content-icon fas" text="&#xf1e1;"></Label>
+            </StackLayout>
+            <Button text="Estado de red" class="-primary" (tap)="this.plugins.onMonitoreoDatos()"></Button>  
+        </StackLayout> 
+    </ScrollView>
+</GridLayout>  -->
+<ListView [items]="datosRed" separatorColor="blue" >
+    <ng-template let-x="item" let-i="index" let-odd="odd" let-even="even">
+        <StackLayout>
+            <ScrollView height="30" >
+                <!-- <Image src="res://icon" class="thumb img-circle" stretch="aspectFill"></Image> -->
+                <Label [text]="x" class="t-12" verticalAlignment="center" style="width: 60%"></Label>
+            </ScrollView>
+        </StackLayout>
+    </ng-template>
+</ListView>

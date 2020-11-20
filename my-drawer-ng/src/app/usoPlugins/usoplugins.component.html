@@ -1,0 +1,31 @@
+<ActionBar title="Plugins">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <!-- <Label text="Configuraciónes"></Label> -->
+</ActionBar>
+ 
+<!-- 
+<GridLayout class="page__content">
+    <Label class="page__content-icon fas" text="&#xf013;"></Label>
+    <Label class="page__content-placeholder" text=" El contenido de la página va aquí "></Label>
+</GridLayout>
+ -->
+
+<ScrollView> 
+     
+    <!-- <FlexboxLayout flexDirection="column">
+        <Label col="1" [text]="usuario" class="p-r-10"></Label>
+        <button text="Editar usuario &#xf14b;" class="-primary nt-icon fas" (tap)="onNavItemTap('/formedicion')"></button> 
+    </FlexboxLayout> -->
+
+    <ListView [items]="OpcionesConfig">    
+        <ng-template let-x="item">
+            <FlexboxLayout flexDirection="column">
+                <button [class]="x.estilo" [text]="x.plugins" (tap)="onNavItemTap(x.destino)"></button>
+            </FlexboxLayout> 
+        </ng-template> 
+    </ListView>        
+
+</ScrollView>

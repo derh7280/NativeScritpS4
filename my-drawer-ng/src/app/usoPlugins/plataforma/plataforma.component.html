@@ -1,0 +1,52 @@
+<ActionBar title="Dispositivo">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <ActionItem icon="font://&#xf0a8;" class="fas" (tap)="this.plugins.goBack()"></ActionItem>
+</ActionBar> 
+ 
+<!-- <GridLayout>
+    <ScrollView>
+        <StackLayout class="page__content">
+            <StackLayout>
+                <Label class="page__content-icon fas" text="&#xf3fa;"></Label>
+            </StackLayout>
+            <Button text="Datos plataforma" class="-primary" (tap)="this.plugins.onDatosPlataforma()"></Button>  
+        </StackLayout> 
+    </ScrollView>
+</GridLayout>   -->
+
+
+<!-- <GridLayout>
+    <ScrollView>
+        <StackLayout class="home-panel">
+            <StackLayout>
+                <Label class="page__content-icon fas" text="&#xf3fa;"></Label>   
+            </StackLayout>
+            <ListView [items]="datosDispositivo" class="list-group" separatorColor="blue">
+                <ng-template let-x="item"> 
+                    <FlexboxLayout flexDirection="row">
+                        <Image src="res://icon" class="thumb img-circle" stretch="aspectFill"></Image>
+                        <Label [text]="x.propiedad +': '+x.valor" class="t-12" verticalAlignment="center" style="width: 60%"></Label>
+                    </FlexboxLayout>
+                </ng-template>
+            </ListView>  
+        </StackLayout>
+    </ScrollView>
+</GridLayout>     -->
+
+<!-- <SearchBar hint="Enter search term here ..."
+            [text]="searchPhrase" (textChange)="onTextChanged($event)" 
+            (clear)="onClear($event)" (submit)="onSubmit($event)">
+</SearchBar> -->
+<ListView [items]="datosDispositivo" separatorColor="blue" >
+    <ng-template let-x="item" let-i="index" let-odd="odd" let-even="even">
+        <StackLayout>
+            <ScrollView height="30" >
+                <Image src="res://icon" class="thumb img-circle" stretch="aspectFill"></Image>
+                <Label [text]="x.propiedad +': '+x.valor" class="t-12" verticalAlignment="center" style="width: 60%"></Label>
+            </ScrollView>
+        </StackLayout>
+    </ng-template>
+</ListView>

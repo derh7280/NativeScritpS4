@@ -13,7 +13,13 @@ const routes: Routes = [
     { path: "settings", loadChildren: () => import("~/app/settings/settings.module").then((m) => m.SettingsModule) },
     { path: "support", loadChildren: () => import("~/app/support/support.module").then((m) => m.SupportModule) },
     { path: "events", loadChildren: () => import("~/app/events/events.module").then((m) => m.EventsModule) },
-    { path: "formedicion", loadChildren: () => import("~/app/formEdicion/formedicion.module").then((m) => m.FormedicionModule) }
+    { path: "formedicion", loadChildren: () => import("~/app/formEdicion/formedicion.module").then((m) => m.FormedicionModule) },
+    { path: "usoplugins", loadChildren: () => import("~/app/usoPlugins/usoplugins.module").then((m) => m.UsopluginsModule) },
+    { path: "compartir", loadChildren: () => import("~/app/usoPlugins/compartir/compartir.module").then((m) => m.CompartirModule) },
+    { path: "email", loadChildren: () => import("~/app/usoPlugins/email/email.module").then((m) => m.EmailModule) },
+    { path: "camara", loadChildren: () => import("~/app/usoPlugins/camara/camara.module").then((m) => m.CamaraModule) },
+    { path: "plataforma", loadChildren: () => import("~/app/usoPlugins/plataforma/plataforma.module").then((m) => m.PlataformaModule) },
+    { path: "estadored", loadChildren: () => import("~/app/usoPlugins/estado/estado.module").then((m) => m.EstadoModule) }
 ];
 
 @NgModule({

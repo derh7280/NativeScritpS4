@@ -148,4 +148,4 @@ export class NoticiasService    {
         return getJSON(this.api + "/get?q=" +s);
     } 
 
-}
+} 
