@@ -110,7 +110,13 @@ export class ListadoPlugins{
                         console.log("keepAspectRatio: " + imageAsset.options.keepAspectRatio);
                         console.log("Foto guardada");
                         console.log(imageAsset);
-                        // SocialShare.shareImage(imageAsset, "Asunto: compartido desde la APP");
+                        // imageSourceModule.fromAsset(imageAsset)
+                        ImageSource.fromAsset(imageAsset)
+                            .then((imageSource) => {
+                                SocialShare.shareImage(imageSource, "Asunto: compartido desde APP");
+                            }).catch((err) => {
+                                console.log("Error -> " + err.message);
+                            });
                     }).catch((err) => {
                         console.log("Error -> " + err.message);
                     });

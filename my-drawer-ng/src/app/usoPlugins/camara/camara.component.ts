@@ -12,7 +12,7 @@ import { isAvailable, requestCameraPermissions, takePicture } from '@nativescrip
     templateUrl: "./camara.component.html",
     providers: [
         ListadoPlugins
-],
+    ]
 })
 
 export class CamaraComponent implements OnInit {
