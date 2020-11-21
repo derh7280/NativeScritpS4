@@ -17,12 +17,13 @@ import {
     startMonitoring, 
     stopMonitoring
     } from "@nativescript/core/connectivity"; 
-    
+
 @Injectable()
 export class ListadoPlugins{
-    constructor(private routerExtensions: RouterExtensions){      
+    constructor(private routerExtensions: RouterExtensions){  
+
     }
- 
+
     public goBack(){
         this.routerExtensions.backToPreviousPage();
     }

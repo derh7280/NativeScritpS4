@@ -19,8 +19,9 @@ const routes: Routes = [
     { path: "email", loadChildren: () => import("~/app/usoPlugins/email/email.module").then((m) => m.EmailModule) },
     { path: "camara", loadChildren: () => import("~/app/usoPlugins/camara/camara.module").then((m) => m.CamaraModule) },
     { path: "plataforma", loadChildren: () => import("~/app/usoPlugins/plataforma/plataforma.module").then((m) => m.PlataformaModule) },
-    { path: "estadored", loadChildren: () => import("~/app/usoPlugins/estado/estado.module").then((m) => m.EstadoModule) }
-];
+    { path: "estadored", loadChildren: () => import("~/app/usoPlugins/estado/estado.module").then((m) => m.EstadoModule) },
+    { path: "mapas", loadChildren: () => import("~/app/usoPlugins/mapa/mapa.module").then((m) => m.MapaModule) }
+]; 
 
 @NgModule({
     imports: [NativeScriptRouterModule.forRoot(routes)],
