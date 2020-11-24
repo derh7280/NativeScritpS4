@@ -2,15 +2,15 @@ import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from "
 import { Store }from "@ngrx/store";
 import * as dialogs from "@nativescript/core/ui/dialogs"// tns-core-modules/ui/dialogs";
 import * as Toast from "nativescript-toasts";
-import * as SocialShare from "nativescript-social-share";
+// import * as SocialShare from "nativescript-social-share";
+import * as SocialShare from "@nativescript/social-share";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { Application, Color, colorProperty, TextField, View, ImageSource } from "@nativescript/core";
-import { AppState } from "../app.module"
+import { AppState } from "../app.module";
 import { Noticia, NuevaNoticiaAction } from "../domain/noticias-state.model";
 import { NoticiasService } from "../domain/noticias.service";
-import { ItemEventData } from "@nativescript/core/ui/list-view"
+import { ItemEventData } from "@nativescript/core/ui/list-view";
 import { AnimationCurve } from "@nativescript/core/ui/enums";
-
 
 @Component({
     selector: "Search",
@@ -27,7 +27,6 @@ export class SearchComponent implements OnInit {
     
     constructor(private noticias: NoticiasService, private store: Store<AppState>) {
         // Use the component constructor to inject providers.
-
     }
 
     onItemTap(x): void {
@@ -38,7 +37,7 @@ export class SearchComponent implements OnInit {
     onLongPress(s):void {
         console.log(s); 
         SocialShare.shareText(s, "Asunto: compartido desde el curso");
-    }
+    } 
 
     public shareImagen():void{
         console.dir("Compartiendo Imagen");

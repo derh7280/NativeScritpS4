@@ -2,7 +2,8 @@ import { Component, ElementRef, EventEmitter, Injectable, OnInit, Output, ViewCh
 import { Store }from "@ngrx/store";
 import * as dialogs from "@nativescript/core/ui/dialogs"// tns-core-modules/ui/dialogs";
 import * as Toast from "nativescript-toasts";
-import * as SocialShare from "nativescript-social-share";
+// import * as SocialShare from "nativescript-social-share";
+import * as SocialShare from "@nativescript/social-share";
 import { Application, Color, colorProperty, TextField, View, ImageSource, ImageAsset } from "@nativescript/core";
 import { RouterExtensions } from "@nativescript/angular";
 import * as email from "nativescript-email";
@@ -46,8 +47,8 @@ export class ListadoPlugins{
     public shareImagen():void{
         console.dir("Compartiendo Imagen");
         // let imagen = ImageSource.fromFile("~/res/img/logo.png");//~/path/to/myImage.jpg
-        // //let image = ImageSource.fromUrl("https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png");
-        // SocialShare.shareImage(imagen, "Imagen compartida");
+        // let image = ImageSource.fromUrl("https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png");
+        // SocialShare.shareImage(image, "Imagen compartida");
         ImageSource.fromUrl("https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png").then((image) => {
             SocialShare.shareImage(image, "Imagen compartida");
         }); 
@@ -109,7 +110,7 @@ export class ListadoPlugins{
                         console.log("Tamaño: " + imageAsset.options.width + "x" + imageAsset.options.height);
                         console.log("keepAspectRatio: " + imageAsset.options.keepAspectRatio);
                         console.log("Foto guardada");
-                        console.log(imageAsset);
+                        //console.log(imageAsset);
                         // imageSourceModule.fromAsset(imageAsset)
                         ImageSource.fromAsset(imageAsset)
                             .then((imageSource) => {
