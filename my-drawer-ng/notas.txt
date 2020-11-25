@@ -1,0 +1,21 @@
+tns test init
+npm i @types/jasmine --save-dev
+tns device
+agregamos test
+Port 9876
+tns build & test android
+
+tns build android
+tns test android
+
+git add archivos js en el git ingnore no pasan
+git add -f karma.conf.js
+
+
+karma.conf.js
+
+files: [
+'src/**/*.spec.js'
+]
+
+tns test android 

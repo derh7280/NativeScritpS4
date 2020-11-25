@@ -3,13 +3,10 @@
   <properties>
     <property name="browser.fullName" value="NativeScript / 28 (9; ANE-LX3)"/>
   </properties>
+<testcase name="reducerNoticias should reduce new item added" time="0.018" classname="NativeScript / 28 (11; sdk_gphone_x64).reducerNoticias"/>
+  <testcase name="reducerNoticias should reduce init data" time="0.006" classname="NativeScript / 28 (11; sdk_gphone_x64).reducerNoticias"/>
   <system-out>
-    <![CDATA[Chrome 87.0.4280.66 (Windows 10) ERROR
-  An error was thrown in afterAll
-  Uncaught ReferenceError: global is not defined
-  ReferenceError: global is not defined
-      at src/app/domain/noticias-state.model.spec.bundle.js:1:1
-
+    <![CDATA[
 ]]>
   </system-out>
   <system-err/>
