@@ -12,7 +12,7 @@ module.exports = function (config) {
 
     // list of files / patterns to load in the browser
     // files: ['src/tests/**/*.ts'],
-    files: ['src/**/*.spec.ts'],
+    files: ['src/**/*.spec.js'],
     
 
     // list of files to exclude
@@ -30,17 +30,16 @@ module.exports = function (config) {
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     // reporters: ['progress'],
-    reporters: ['progress', 'junit'], 
-    junitReporter: {
-      outputDir: process.env.JUNIT_REPORT_PATH || '', // para especificar el nombre de salida de la carpeta donde se guardaran los archivos.
-      outputFile: process.env.JUNIT_REPORT_NAME || undefined, // para especificar el nombre de salida del archivo de reportes.
-      suite: '', // para especificar un nombre de paquete para la suite.
-      useBrowserName: false, // para agregar reportes de navegador.
-      nameFormatter: undefined, // function (browser, result) para personalizar el nombre de los atributos.
-      classNameFormatter: undefined, // function (browser, result) para personalizar el nombre de las clases.
-      properties: {}
-      },
-     
+    reporters: ['progress', 'junit'],
+    junitReporter: {       
+      outputDir: process.env.JUNIT_REPORT_PATH || '', // para especificar el nombre de salida de la carpeta donde se guardaran los archivos.       
+      outputFile: process.env.JUNIT_REPORT_NAME || undefined, // para especificar el nombre de salida del archivo de reportes.       
+      suite: '', // para especificar un nombre de paquete para la suite.       
+      useBrowserName: false, // para agregar reportes de navegador.       
+      nameFormatter: undefined, // function (browser, result) para personalizar el nombre de los atributos.       
+      classNameFormatter: undefined, // function (browser, result) para personalizar el nombre de las clases.       
+      properties: {}      
+    }, 
 
     // web server port
     port: 9876,
