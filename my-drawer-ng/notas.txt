@@ -1,8 +1,11 @@
+-------------------------
+Uso de Jasmine
+-------------------------
 tns test init
 npm i @types/jasmine --save-dev
 tns device
 agregamos test
-Port 9876
+Port 9876 //debe estar egregado a las entradas de firewall windows
 tns build & test android
 
 tns build android
@@ -19,3 +22,31 @@ files: [
 ]
 
 tns test android 
+
+---------------------------------------------------
+Pruebas de extremo a extremo con APPIUM
+---------------------------------------------------
+
+npm install -D nativescript-dev-appium
+El instalador te preguntará qué tipo de proyecto es el actual (elige shared-ngproject) 
+Luego preguntará qué framework de testing usar (elige Jasmine) 
+npm install -g appium 
+
+instalar windows-build-tools (https://visualstudio.microsoft.com/es/thank-you-downloading-visual-studio/?sku=BuildTools&rel=15)
+Instalar Python 2.7
+probar instalaciones
+abrir powershell y ejecutar como administrador
+npm install --global windows-build-tools
+esto instala y configura el windows-build-tools y paton 2.7 sino esta instalado
+
+Para utilizar appium
+tns build android ó tns build ios
+Para ejecutar, debes hacer lo siguiente:
+Inicias appium:
+ appium
+El servidor inicia en localhost:4723
+Luego inicias los tests:
+ npm run e2e -- --runType android28
+o bien
+ npm run e2e -- --runType sim.iPhone8.iOS110 
+
