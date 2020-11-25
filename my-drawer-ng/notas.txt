@@ -23,6 +23,9 @@ files: [
 
 tns test android 
 
+
+
+
 ---------------------------------------------------
 Pruebas de extremo a extremo con APPIUM
 ---------------------------------------------------
@@ -50,3 +53,12 @@ Luego inicias los tests:
 o bien
  npm run e2e -- --runType sim.iPhone8.iOS110 
 
+
+
+Integración de Git a Circle
+El tutorial 'Instalación de herramientas Git', que encontrarás a continuación de esta nota, lo presentamos anteriormente en el curso 
+'Desarrollo de páginas con Angular' (el 2º de este programa 'Full-stack Web Development en español'). 
+
+Te recomendamos verlo ya que te ayuda a 'cuidar' tu código en la integración de Git a CircleCI para la integración continua de código.
+instalacion de herramientas
+instalar git
